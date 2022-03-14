@@ -43,6 +43,8 @@ public class ProductServlet extends HttpServlet {
             case "edit":
                 int id2 = Integer.parseInt(request.getParameter("id"));
                 Product product2 = productService.findById(id2);
+                List<Category> categories1 =categoryservice.findAll();
+                request.setAttribute("categories1",categories1);
                 request.setAttribute("product", product2);
                 RequestDispatcher dispatcher4 = request.getRequestDispatcher("/edit.jsp");
                 dispatcher4.forward(request,response);
@@ -95,7 +97,8 @@ public class ProductServlet extends HttpServlet {
                 int quantily2 = Integer.parseInt(request.getParameter("quantily"));
                 String color2 = request.getParameter("color");
                 String description2 = request.getParameter("description");
-                Product product1 = new Product(id2,name2,price2,quantily2,color2,description2);
+                int category = Integer.parseInt(request.getParameter("category"));
+                Product product1 = new Product(id2,name2,price2,quantily2,color2,description2,category);
                 productService.updateById(id2,product1);
 //                String message = "";
 //                if (isUpdate){

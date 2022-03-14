@@ -16,11 +16,16 @@
 <body>
 <div class="container">
     <a href="/">Danh sách sản phẩm</a>
+
     <h1>Tạo mới sản phẩm</h1>
     <c:if test="${message!=null}">
         <p class="alert alert-success">${message}</p>
     </c:if>
-    <form action="/product?action=create" method="post">
+    <form style="position: absolute; margin-left: 90px">
+        <button type="submit" class="btn btn-primary" href="/">Back</button>
+    </form>
+    <form action="/?action=create" method="post">
+        <button type="submit" class="btn btn-primary">Tạo mới</button>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Tên sản phẩm:</label>
             <input type="text" class="form-control" id="exampleInputPassword1" name="name">
